@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <style>
+    .auth-logo-container {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+    .auth-page-logo {
+        height: 50px; /* Adjust as needed */
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    form {
+      background-color: #fff;
+      display: inline-block;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      width: 320px;
+    }
+
+    input {
+      width: 90%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #008CBA;
+      color: white;
+      border: none;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    label {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-logo-container">
+    <img src="images/logo.png" alt="App Logo" class="auth-page-logo">
+  </div>
+
+  <h2>Log In</h2>
+
+  <form action="login.php" method="POST">
+    <input type="text" name="identifier" placeholder="Username or Email" required><br>
+
+    <div style="position: relative; display: inline-block; width: 90%; margin-top: 10px; box-sizing: border-box;">
+      <input type="password" name="password" placeholder="Password" id="password" required style="width: 100%; padding: 10px; padding-right: 45px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box;">
+      <span id="togglePassword" style="position: absolute; right: 10px; top: 57%; transform: translateY(-43%); cursor: pointer; font-size: 0.8em; font-weight: bold; line-height: 1;">show</span>
+    </div><br>
+
+    <input type="submit" value="Log In">
+  </form>
+
+  <script>
+    function togglePassword() {
+      const passwordField = document.getElementById("password");
+      const toggleIcon = document.getElementById("togglePassword");
+      if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleIcon.textContent = "hide";
+      } else {
+        passwordField.type = "password";
+        toggleIcon.textContent = "show";
+      }
+    }
+
+    document.getElementById("togglePassword").addEventListener('click', togglePassword);
+  </script>
+
+</body>
+</html>
